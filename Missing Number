@@ -1,29 +1,45 @@
+/*
+This problem is very simple using Python because of the built in len() function as well as the "in" operator.
+Here is my Python solution.
+
+def missing_number(list):
+    for num in range(0, len(list)):
+        if not num in list:
+            return num
+    return -1
+*/
+
+// C solution
+
 #include <stdio.h>
 
-// Creating the "in" operator from Python.
+// To do this in C, I had to find another way to get the functionality of the "in" operator.
 int in(int element, int array[], int size) {
-
-    # Functionality of Python for loop: For i in range(0, len(array):
     for (int i = 0; i < size; i++) {
+
+        // If the element is found in the array, return 1, which is True.
         if (array[i] == element) {
             return 1;
         }
     }
+    // If the element is not found, return 0, which is False
     return 0;
 }
 
 int missing_number(int nums[], int size) {
     for (int i = 0; i < size; i++) {
+
+        // If i is not in the array, it is missing, so return i
         if (!in(i, nums, size)) {
             return i;
         }
     }
+    // If there are no missing numbers, return -1
     return -1;
 }
 
 int main() {
     int list[] = {0, 1, 2, 3, 5};
-
     int result = missing_number(list, 5);
 
     printf("%d", result);
